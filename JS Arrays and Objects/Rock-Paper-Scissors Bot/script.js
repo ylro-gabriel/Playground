@@ -23,8 +23,37 @@ function getWinner(playerMove, computerMove) {
   }
 }
 
-let playerMove = moves[0];
-console.log(`Player: ${playerMove}`);
-let computerMove = getRandomMove(moves);
-console.log(`Computer: ${computerMove}`);
-console.log(getWinner(playerMove, computerMove));
+const playerMoves = ["rock", "paper", "scissors", moves[1], moves[2]];
+const score = {
+  player: 0,
+  computer: 0,
+  ties: 0,
+};
+
+function playTournament(playerMoves, moves) {
+  for (let i = 0; i < playerMoves.length; i++) {
+    let currentPlayerMove = playerMoves[i];
+    let computerMove = getRandomMove(moves);
+    let result = getWinner(currentPlayerMove, computerMove);
+    console.log(
+      `Round ${i + 1}: Player chose ${currentPlayerMove}. Computer chose ${computerMove}. ${result}`,
+    );
+
+    if (result === "The player wins!") {
+      score.player++;
+    } else if (result === "The computer wins!") {
+      score.computer++;
+    } else {
+      score.ties++;
+    }
+  }
+
+  console.log`
+  Player score: ${score.player}
+  Computer score: ${score.computer}
+  Ties: ${score.ties}
+  `;
+  return score;
+}
+
+playTournament(playerMoves, moves);
