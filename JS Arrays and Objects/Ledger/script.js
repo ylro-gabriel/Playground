@@ -85,14 +85,19 @@ const today = "9/23/26";
 function listOverdueDevices(ledger, today) {
   let overdueDevices = [];
 
-  if (ledger["status"] === "CheckedIn") return overdueDevices;
+  return overdueDevices;
 }
 
-const ages = [16, 17, 14, 18, 18, 19, 25];
+//Practice problems
+function filterAndSort(numbers, threshold) {
+  //return only numbers > threshold, sorted ascending
+  const filteredNumbers = numbers.filter(filterGreater);
 
-function isAdult(number) {
-  return number >= 18;
+  function filterGreater(num) {
+    return num > threshold;
+  }
+
+  return filteredNumbers;
 }
 
-const adults = ages.filter(isAdult);
-console.log(adults);
+console.log(filterAndSort([5, 12, 3, 8, 20], 6)); // -> [8,12,20]
