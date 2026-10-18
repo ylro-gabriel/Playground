@@ -88,16 +88,138 @@ function listOverdueDevices(ledger, today) {
   return overdueDevices;
 }
 
-//Practice problems
+//TODO delete this later
+//Practice problem level 1
 function filterAndSort(numbers, threshold) {
   //return only numbers > threshold, sorted ascending
-  const filteredNumbers = numbers.filter(filterGreater);
+  const filterThreshold = numbers.filter(greaterThanThreshold);
 
-  function filterGreater(num) {
-    return num > threshold;
+  function greaterThanThreshold(num) {
+    if (num > threshold) {
+      return num;
+    }
   }
 
-  return filteredNumbers;
+  return filterThreshold.sort(function (a, b) {
+    return a - b;
+  });
 }
 
-console.log(filterAndSort([5, 12, 3, 8, 20], 6)); // -> [8,12,20]
+//Practice Problem level 2
+function incompleteTasksByPriority(tasks) {
+  //tasks: [{title: "...", done: false, priority:2},...]
+  //return the tasks where done === false, sorted by priority ascending
+
+  const filteredTasks = tasks.filter(filterOutFalse);
+  function filterOutFalse(obj) {
+    return obj.done === false;
+  }
+
+  return filteredTasks.sort(function (a, b) {
+    return a.priority - b.priority;
+  });
+}
+
+const tasks = [
+  {
+    title: "Write report",
+    done: false,
+    priority: 3,
+  },
+  {
+    title: "Email client",
+    done: true,
+    priority: 1,
+  },
+  {
+    title: "Fix bug",
+    done: false,
+    priority: 1,
+  },
+  {
+    title: "Buy coffee",
+    done: false,
+    priority: 2,
+  },
+  {
+    title: "Deploy app",
+    done: true,
+    priority: 2,
+  },
+  {
+    title: "Plant sprint",
+    done: false,
+    priority: 10,
+  },
+];
+
+/*
+Expected Output
+[
+  { title: "Fix bug",     done: false, priority: 1 },
+  { title: "Buy coffee",  done: false, priority: 2 },
+  { title: "Write report",done: false, priority: 3 },
+  { title: "Plan sprint", done: false, priority: 10 }
+]
+*/
+
+//Problem level 3
+function upcomingEventsSorted(events) {
+  //return events where cancelled === false
+  //sort date in ascending order
+
+  const filteredEvents = events.filter(filterFalse);
+  function filterFalse(event) {
+    return event.cancelled === false;
+  }
+
+  return filteredEvents.sort((a, b) => a.date.localeCompare(b.date));
+}
+
+const events = [
+  {
+    name: "Team lunch",
+    date: "2025-09-05",
+    cancelled: false,
+  },
+  {
+    name: "Conference",
+    date: "2025-10-01",
+    cancelled: false,
+  },
+  {
+    name: "Workshop",
+    date: "2025-09-20",
+    cancelled: true,
+  },
+  {
+    name: "Old meetup",
+    date: "2024-12-31",
+    cancelled: false,
+  },
+  {
+    name: "Cancelled BBQ",
+    date: "2025-01-02",
+    cancelled: true,
+  },
+  {
+    name: "Retro",
+    date: "2025-01-15",
+    cancelled: false,
+  },
+];
+
+console.log(upcomingEventsSorted(events));
+/*
+Expected output:
+[
+  { name: "Old meetup", date: "2024-12-31", cancelled: false },
+  { name: "Retro",      date: "2025-01-15", cancelled: false },
+  { name: "Team lunch", date: "2025-09-05", cancelled: false },
+  { name: "Conference", date: "2025-10-01", cancelled: false }
+]
+*/
+
+let arr = ["d", "c", "b", "a"];
+let sortArr = arr.sort((a, b) => a.localeCompare(b));
+console.log(sortArr);
