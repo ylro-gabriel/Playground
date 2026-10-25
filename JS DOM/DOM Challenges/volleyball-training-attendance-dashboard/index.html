@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Volleyball Training Attendance</title>
+  </head>
+  <body>
+    <h1>Volleyball Training Attendance</h1>
+
+    <section class="team" id="class">
+      <h2>Team A</h2>
+
+      <p class="player">Marco - <span class="status">Present</span></p>
+      <p class="player">John - <span class="status">Present</span></p>
+      <p class="player">Luis - <span class="status">Absent</span></p>
+      <p class="player">Carlo - <span class="status">Present</span></p>
+
+      <h3 class="attendance-count">Present: 0/0</h3>
+      <p class="attendance-percent">0%</p>
+
+      <div style="background: lightgray; height: 20px">
+        <div
+          class="progress-fill"
+          style="background: green; height: 100%; width: 0%"
+        ></div>
+      </div>
+
+      <p class="team-result">Checking...</p>
+    </section>
+    <section class="team" id="team-b">
+      <h2>Team B</h2>
+
+      <p class="player">James - <span class="status">Present</span></p>
+      <p class="player">Ryan - <span class="status">Absent</span></p>
+      <p class="player">Ken - <span class="status">Late</span></p>
+      <p class="player">Paul - <span class="status">Present</span></p>
+
+      <h3 class="attendance-count">Present: 0/0</h3>
+      <p class="attendance-percent">0%</p>
+
+      <div style="background: lightgray; height: 20px">
+        <div
+          class="progress-fill"
+          style="background: green; height: 100%; width: 0%"
+        ></div>
+      </div>
+
+      <p class="team-result">Checking...</p>
+    </section>
+
+    <h2 id="overall-count">Overall Present Players: 0</h2>
+
+    <script src="script.js"></script>
+  </body>
+</html>
