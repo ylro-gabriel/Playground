@@ -42,3 +42,60 @@ for (const team of teams) {
 }
 
 overallCount.textContent = `Overall Present Players: ${totalPresentPlayers}`;
+
+//Challenge 5
+const roster = ["Mika", "Alex", "Jordan", "Sam", "Taylor"];
+
+function findPlayer(roster, searchName) {
+  for (const player of roster) {
+    if (searchName === player) {
+      return player;
+    }
+  }
+
+  return `Player not found`;
+}
+
+const searchResult = document.querySelector("#search-result");
+
+searchResult.textContent = findPlayer(roster, "Jordan");
+
+// Challenge 6
+const teamRoster = [
+  {
+    name: "Mika",
+    position: "Setter",
+    jerseyNumber: 7,
+  },
+  {
+    name: "Alex",
+    position: "Libero",
+    jerseyNumber: 12,
+  },
+  {
+    name: "Jordan",
+    position: "Outside Hitter",
+    jerseyNumber: 9,
+  },
+  {
+    name: "Sam",
+    position: "Middle Blocker",
+    jerseyNumber: 5,
+  },
+];
+
+function findPlayerProfile(roster, searchName) {
+  for (const object of roster) {
+    if (object["name"] === searchName) {
+      return object;
+    }
+  }
+
+  return "Player not found";
+}
+
+const scoutName = document.querySelector("#scout-name");
+const scoutPosition = document.querySelector("#scout-position");
+const scoutJersey = document.querySelector("#scout-jersey");
+
+scoutName.textContent = findPlayer(teamRoster, "Jordan");
